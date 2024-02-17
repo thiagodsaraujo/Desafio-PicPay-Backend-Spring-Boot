@@ -1,35 +1,45 @@
-<h1 align="center">:file_cabinet: Exemplo de README.md</h1>
+<h1 align="center">:file_cabinet: Desafio PicPay :alien: </h1>
 
 ## :memo: Descrição
-Escreva uma descrição do seu projeto
+
+API de fluxo de transferência bancárias entre clientes que faz parte [desse desafio](https://github.com/PicPay/picpay-desafio-backend) para pessoas desenvolvedoras backend júnior, que se candidatam para o PicPay.
 
 ## :books: Funcionalidades
-* <b>Funcionalidade 1</b>: O que essa funcionalidade faz?
-
+* <b>Funcionalidade</b>: Transferência entre contas
 ## :wrench: Tecnologias utilizadas
-* Tecnologia;
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
+* [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+* [SpringDoc OpenAPI 3](https://springdoc.org/v2/#spring-webflux-support)
 
-## :rocket: Rodando o projeto
-Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando para iniciar o projeto:
+## :rocket: Práticas adotadas
+
+- Clean Arquiteture
+- API RESTFull
+- Notificações de eventos
+- Consultas com Spring Data JPA
+- Boas práticas
+- Tratamento de respostas de erro
+- Geração automática do Swagger com a OpenAPI 3
+
+### 🔧 Instalação
+
+* Clonar repositório git
+
 ```
-<linha de comando>
+$ ./mvnw clean package
+```
+- Executar a aplicação:
+```
+$ java -jar target/desafiopicpay-0.0.1-SNAPSHOT.jar
 ```
 
 ## :soon: Implementação futura
-* O que será implementado na próxima sprint?
 
-## :handshake: Colaboradores
-<table>
-  <tr>
-    <td align="center">
-      <a href="http://github.com/tatialveso">
-        <img src="https://avatars.githubusercontent.com/u/56259137?v=4" width="100px;" alt="Foto de Tati Alves no GitHub"/><br>
-        <sub>
-          <b>tatialveso</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
-</table>
+* Implementações de segurança
+* Implementações de testes unitários
+* Implementações de lock e threads para evitar concorrencia de transações(race conditions)
 
 ## :dart: Status do projeto
+ * :+1: Finalizado
+
