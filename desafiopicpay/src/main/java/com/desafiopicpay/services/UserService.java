@@ -2,11 +2,12 @@ package com.desafiopicpay.services;
 
 import com.desafiopicpay.domain.user.User;
 import com.desafiopicpay.domain.user.UserType;
+import com.desafiopicpay.dtos.UserDTO;
 import com.desafiopicpay.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -21,7 +22,7 @@ public class UserService {
 
     public void validateTransaction(User sender, BigDecimal amount) throws Exception {
 
-        if (sender.getUserType() != UserType.MERCHANT) {
+        if (sender.getUserType() == UserType.MERCHANT) {
             throw new Exception("Usuario do tipo lojista não está autorizado a realizar transações.");
         }
 
@@ -31,7 +32,7 @@ public class UserService {
 
     }
 
-    public User findById(Long id) throws Exception {
+    public User findUserById(Long id) throws Exception {
         return this.userRepository.findById(id).orElseThrow(() -> new Exception("Usuário não encontrado"));
     }
 
@@ -39,4 +40,15 @@ public class UserService {
         this.userRepository.save(user);
     }
 
+    public User createUser(UserDTO user) {
+        User newUser = new User(user);
+
+        this.saveUser(newUser);
+
+        return newUser;
+    }
+
+    public List<User> listUsers() {
+        return this.userRepository.findAll();
+    }
 }
